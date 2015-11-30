@@ -12,9 +12,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mp;
-    int[] soundsr = {R.raw.rightdoor,R.raw.running,R.raw.rdoorsound};
-    int[] soundsg = {R.raw.rightdoor,R.raw.running,R.raw.gdoorsound};
-    int[] soundsb = {R.raw.rightdoor,R.raw.running,R.raw.bdoorsound};
+    int[] soundsr = {R.raw.rightdoor1,R.raw.running1,R.raw.rdoorsound1};
+    int[] soundsg = {R.raw.rightdoor1,R.raw.running1,R.raw.gdoorsound1};
+    int[] soundsb = {R.raw.rightdoor1,R.raw.running1,R.raw.bdoorsound1};
 
     Random r = new Random();
     final int Low = 0;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
 
         Button rdoor = (Button) findViewById(R.id.rdoor);
