@@ -21,4 +21,5 @@
         <item>bdoorsound</item>
         <item>rightdoor</item>
     </string-array>
+    <string name="title_activity_trace">Trace</string>
 </resources>

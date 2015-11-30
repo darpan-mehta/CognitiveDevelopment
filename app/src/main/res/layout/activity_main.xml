@@ -23,6 +23,13 @@
         android:id="@+id/gdoor"
         android:text="Green Door"
         android:layout_below="@id/bdoor"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/trace"
+        android:text="Go to trace Activity"
+        android:layout_below="@id/gdoor"
+        android:onClick="goToTrace"/>
 
 
 
