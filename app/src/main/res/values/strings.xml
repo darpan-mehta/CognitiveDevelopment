@@ -3,4 +3,22 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="rdoorstr">
+        <item>running</item>
+        <item>rdoorsound</item>
+        <item>rightdoor</item>
+    </string-array>
+
+    <string-array name="gdoorstr">
+        <item>running</item>
+        <item>gdoorsound</item>
+        <item>rightdoor</item>
+    </string-array>
+
+    <string-array name="bdoorstr">
+        <item>running</item>
+        <item>bdoorsound</item>
+        <item>rightdoor</item>
+    </string-array>
 </resources>
