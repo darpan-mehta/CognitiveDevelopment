@@ -18,11 +18,15 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.Toast;
 
 public class DrawView extends View implements OnTouchListener {
     private static final String TAG = "DrawView";
-    int numBlue=0;
-    int numRed=0;
+    int sideOne=0;
+    int sideTwo=0;
+    int sideThree=0;
+    int sideFour=0;
+    int numWrong=0;
     int total=0;
     List<Point> points = new ArrayList<Point>();
     Paint paint = new Paint();
@@ -34,28 +38,36 @@ public class DrawView extends View implements OnTouchListener {
         setFocusableInTouchMode(true);
         this.setOnTouchListener(this);
 
-        newPaint.setColor(Color.RED);
+        newPaint.setColor(Color.GREEN);
         newPaint.setAntiAlias(true);
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.RED);
         paint.setAntiAlias(true);
     }
 
     @Override
     public void onDraw(Canvas canvas) {
         Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.square);
-        canvas.drawBitmap(b,50,200,null);
+        canvas.drawBitmap(b,300,50,null);
         for (Point point : points) {
-            if (point.x<=574.7184 && point.y<=400 && point.y>=300 && point.x>=185){
+            if (point.x<=850 && point.y<=200 && point.y>=150 && point.x>=450){
                 canvas.drawCircle(point.x, point.y, 25, newPaint);
-                numRed++;
+                sideOne++;
             }
-            else if(point.x<=600 && point.y<=740 && point.y>=300 && point.x>=570){
+            else if (point.x<=850 && point.y<=600 && point.y>=550 && point.x>=450){
                 canvas.drawCircle(point.x, point.y, 25, newPaint);
-                numRed++;
+                sideTwo++;
+            }
+            else if(point.x<=860 && point.y<=740 && point.y>=200 && point.x>=800){
+                canvas.drawCircle(point.x, point.y, 25, newPaint);
+                sideThree++;
+            }
+            else if(point.x<=450 && point.y<=740 && point.y>=200 && point.x>=400){
+                canvas.drawCircle(point.x, point.y, 25, newPaint);
+                sideFour++;
             }
             else {
                 canvas.drawCircle(point.x, point.y, 25, paint);
-                numBlue++;
+                numWrong++;
             }
             // Log.d(TAG, "Painting: "+point);
             total++;
@@ -69,16 +81,30 @@ public class DrawView extends View implements OnTouchListener {
         point.x = event.getX();
         point.y = event.getY();
         points.add(point);
-        int ratio;
-        if (total == 0){
-            ratio=0;
-        }
-        else {
-            ratio=numRed/total;
-        }
         invalidate();
-        Log.d(TAG, "ratio: " + ratio);
+        Log.d(TAG, "total: " + total);
         Log.d(TAG, "point: " + point);
+        Log.d(TAG, "wrong: " + numWrong);
+        if (total>2500 && sideOne>160 && sideTwo>125 && sideThree>150 && sideFour>300){
+            Toast.makeText(view.getContext(), "Congrats. You traced the shape.",Toast.LENGTH_LONG).show();
+            points.clear();
+            sideOne=0;
+            sideTwo=0;
+            sideThree=0;
+            sideFour=0;
+            numWrong=0;
+            total=0;
+        }
+        if (numWrong>100){
+            Toast.makeText(view.getContext(), "Try again",Toast.LENGTH_LONG).show();
+            points.clear();
+            sideOne=0;
+            sideTwo=0;
+            sideThree=0;
+            sideFour=0;
+            numWrong=0;
+            total=0;
+        }
         return true;
     }
 }

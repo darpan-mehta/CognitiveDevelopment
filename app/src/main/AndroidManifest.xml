@@ -20,6 +20,7 @@
         <activity
             android:name=".Trace"
             android:label="@string/title_activity_trace"
+            android:screenOrientation="landscape"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
