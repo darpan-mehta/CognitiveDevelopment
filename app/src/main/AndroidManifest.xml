@@ -25,6 +25,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cogdev.cognitivedevelopment.MainActivity" />
         </activity>
+        <activity
+            android:name=".DoorScreen"
+            android:label="@string/title_activity_door_screen"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cogdev.cognitivedevelopment.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,14 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.cogdev.cognitivedevelopment.DoorScreen"
+    android:background="@drawable/doors">
+
+
+    <ImageButton
+        android:layout_width="170dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageButton"
+        android:layout_row="3"
+        android:layout_column="8" />
+</GridLayout>

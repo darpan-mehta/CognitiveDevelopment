@@ -115,4 +115,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Trace.class);
         startActivity(intent);
     }
+
+    public void goToDoor(View view) {
+        Intent intent = new Intent(this, DoorScreen.class);
+        startActivity(intent);
+    }
 }
