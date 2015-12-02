@@ -1,5 +1,6 @@
 package com.cogdev.cognitivedevelopment;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,12 +9,24 @@ import android.view.View;
 import android.widget.Toast;
 
 public class ShipCounting extends AppCompatActivity {
-
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ship_counting);
         getSupportActionBar().hide();
+
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.parrotintro);
+        try {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+            }
+            mp = MediaPlayer.create(getApplicationContext(), R.raw.parrotintro);
+            mp.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -21,6 +34,7 @@ public class ShipCounting extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_ship_counting, menu);
         return true;
+
     }
 
     @Override
