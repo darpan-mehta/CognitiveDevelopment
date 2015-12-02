@@ -119,10 +119,12 @@ public class MainActivity extends AppCompatActivity {
     public void goToDoor(View view) {
         Intent intent = new Intent(this, DoorScreen.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 
     public void goToCounting(View view) {
         Intent intent = new Intent(this, ShipCounting.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }
