@@ -1,4 +1,4 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context="com.cogdev.cognitivedevelopment.DoorScreen"
@@ -6,9 +6,38 @@
 
 
     <ImageButton
-        android:layout_width="170dp"
+        android:layout_width="160dp"
         android:layout_height="250dp"
-        android:id="@+id/imageButton"
-        android:layout_row="3"
-        android:layout_column="8" />
-</GridLayout>
+        android:id="@+id/imageButtonRed"
+        android:layout_marginLeft="84dp"
+        android:layout_marginStart="84dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent"
+        android:onClick="toastIncorrect"/>
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageButtonBlue"
+        android:layout_alignTop="@+id/imageButtonRed"
+        android:layout_toRightOf="@+id/imageButtonRed"
+        android:layout_toEndOf="@+id/imageButtonRed"
+        android:layout_marginLeft="87dp"
+        android:layout_marginStart="87dp"
+        android:background="@android:color/transparent"
+        android:onClick="toastIncorrect"/>
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageButtonGreen"
+        android:layout_marginLeft="87dp"
+        android:layout_marginStart="87dp"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/imageButtonBlue"
+        android:layout_toRightOf="@+id/imageButtonBlue"
+        android:layout_toEndOf="@+id/imageButtonBlue"
+        android:onClick="toastCorrect"/>
+</RelativeLayout>

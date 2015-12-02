@@ -120,4 +120,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DoorScreen.class);
         startActivity(intent);
     }
+
+    public void goToCounting(View view) {
+        Intent intent = new Intent(this, ShipCounting.class);
+        startActivity(intent);
+    }
 }

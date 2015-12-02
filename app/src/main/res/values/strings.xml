@@ -23,4 +23,5 @@
     </string-array>
     <string name="title_activity_trace">Trace</string>
     <string name="title_activity_door_screen">DoorScreen</string>
+    <string name="title_activity_ship_counting">ShipCounting</string>
 </resources>

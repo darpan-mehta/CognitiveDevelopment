@@ -7,19 +7,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class DoorScreen extends AppCompatActivity {
+public class ShipCounting extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_door_screen);
+        setContentView(R.layout.activity_ship_counting);
         getSupportActionBar().hide();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_door_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_ship_counting, menu);
         return true;
     }
 

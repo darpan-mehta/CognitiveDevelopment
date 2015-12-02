@@ -35,11 +35,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go To Door"
-        android:id="@+id/button"
+        android:id="@+id/door"
         android:layout_below="@+id/trace"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="goToDoor"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Parrot"
+        android:id="@+id/parrot"
+        android:layout_below="@+id/door"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="goToCounting"/>
 
 
 </RelativeLayout>
