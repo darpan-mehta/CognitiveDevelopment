@@ -46,8 +46,11 @@ public class DrawView extends View implements OnTouchListener {
 
     @Override
     public void onDraw(Canvas canvas) {
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.square);
-        canvas.drawBitmap(b,300,50,null);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.squaret);
+        int h = 1280; // Height in pixels
+        int w = 770; // Width in pixels
+        Bitmap scaled = Bitmap.createScaledBitmap(b, h, w, true);
+        canvas.drawBitmap(scaled,0,0,null);
         for (Point point : points) {
             if (point.x<=850 && point.y<=200 && point.y>=150 && point.x>=450){
                 canvas.drawCircle(point.x, point.y, 25, newPaint);
