@@ -5,6 +5,7 @@ package com.cogdev.cognitivedevelopment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -31,6 +32,11 @@ public class DrawView extends View implements OnTouchListener {
     List<Point> points = new ArrayList<Point>();
     Paint paint = new Paint();
     Paint newPaint = new Paint();
+    Random rand = new Random();
+    int n = rand.nextInt(3);
+    Bitmap a = BitmapFactory.decodeResource(getResources(), R.drawable.squaret);
+    Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.circlet);
+    Bitmap c = BitmapFactory.decodeResource(getResources(), R.drawable.trianglet);
 
     public DrawView(Context context) {
         super(context);
@@ -46,34 +52,71 @@ public class DrawView extends View implements OnTouchListener {
 
     @Override
     public void onDraw(Canvas canvas) {
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.squaret);
         int h = 1280; // Height in pixels
         int w = 770; // Width in pixels
-        Bitmap scaled = Bitmap.createScaledBitmap(b, h, w, true);
-        canvas.drawBitmap(scaled,0,0,null);
-        for (Point point : points) {
-            if (point.x<=850 && point.y<=200 && point.y>=150 && point.x>=450){
-                canvas.drawCircle(point.x, point.y, 25, newPaint);
-                sideOne++;
+        if (n == 0) {
+            Bitmap scaled = Bitmap.createScaledBitmap(a, h, w, true);
+            canvas.drawBitmap(scaled, 0, 0, null);
+            for (Point point : points) {
+                if (point.x <= 850 && point.y <= 375 && point.y >= 300 && point.x >= 450) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideOne++;
+                } else if (point.x <= 850 && point.y <= 550 && point.y >= 500 && point.x >= 450) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideTwo++;
+                } else if (point.x <= 825 && point.y <= 540 && point.y >= 300 && point.x >= 775) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideThree++;
+                } else if (point.x <= 575 && point.y <= 540 && point.y >= 300 && point.x >= 500) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideFour++;
+                } else {
+                    canvas.drawCircle(point.x, point.y, 25, paint);
+                    numWrong++;
+                }
+                // Log.d(TAG, "Painting: "+point);
+                total++;
             }
-            else if (point.x<=850 && point.y<=600 && point.y>=550 && point.x>=450){
-                canvas.drawCircle(point.x, point.y, 25, newPaint);
-                sideTwo++;
+        }
+        else if (n == 1) {
+            Bitmap scaled = Bitmap.createScaledBitmap(b, h, w, true);
+            canvas.drawBitmap(scaled, 0, 0, null);
+            for (Point point : points) {
+                if (((point.x-680)*(point.x-680)) + ((point.y-420)*(point.y-420)) < 27000 && ((point.x-660)*(point.x-660)) + ((point.y-440)*(point.y-440)) > 5000) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideOne++;
+                    sideTwo=100;
+                    sideThree=100;
+                    sideFour=100;
+                } else {
+                    canvas.drawCircle(point.x, point.y, 25, paint);
+                    numWrong++;
+                }
+                // Log.d(TAG, "Painting: "+point);
+                total++;
             }
-            else if(point.x<=860 && point.y<=740 && point.y>=200 && point.x>=800){
-                canvas.drawCircle(point.x, point.y, 25, newPaint);
-                sideThree++;
+        }
+        else {
+            Bitmap scaled = Bitmap.createScaledBitmap(c, h, w, true);
+            canvas.drawBitmap(scaled, 0, 0, null);
+            for (Point point : points) {
+                if (((point.x*2)-1200)<point.y && ((point.x*2)-1000)>point.y && point.y>200 && point.y<550) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideOne++;
+                } else if (((point.x*(-2))+1500)<point.y && ((point.x*(-2))+1700)>point.y && point.y>200 && point.y<550) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideTwo++;
+                } else if (point.x <= 850 && point.y <= 570 && point.y >= 500 && point.x >= 450) {
+                    canvas.drawCircle(point.x, point.y, 25, newPaint);
+                    sideThree++;
+                    sideFour=100;
+                } else {
+                    canvas.drawCircle(point.x, point.y, 25, paint);
+                    numWrong++;
+                }
+                // Log.d(TAG, "Painting: "+point);
+                total++;
             }
-            else if(point.x<=450 && point.y<=740 && point.y>=200 && point.x>=400){
-                canvas.drawCircle(point.x, point.y, 25, newPaint);
-                sideFour++;
-            }
-            else {
-                canvas.drawCircle(point.x, point.y, 25, paint);
-                numWrong++;
-            }
-            // Log.d(TAG, "Painting: "+point);
-            total++;
         }
     }
 
@@ -85,10 +128,8 @@ public class DrawView extends View implements OnTouchListener {
         point.y = event.getY();
         points.add(point);
         invalidate();
-        Log.d(TAG, "total: " + total);
         Log.d(TAG, "point: " + point);
-        Log.d(TAG, "wrong: " + numWrong);
-        if (total>2500 && sideOne>160 && sideTwo>125 && sideThree>150 && sideFour>300){
+        if (sideOne>10 && sideTwo>10 && sideThree>10 && sideFour>10 && numWrong<50){
             Toast.makeText(view.getContext(), "Congrats. You traced the shape.",Toast.LENGTH_LONG).show();
             points.clear();
             sideOne=0;
@@ -98,7 +139,7 @@ public class DrawView extends View implements OnTouchListener {
             numWrong=0;
             total=0;
         }
-        if (numWrong>100){
+        else if (numWrong>51){
             Toast.makeText(view.getContext(), "Try again",Toast.LENGTH_LONG).show();
             points.clear();
             sideOne=0;
