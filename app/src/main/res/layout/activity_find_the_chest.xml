@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.cogdev.cognitivedevelopment.FindTheChest"
+    android:background="@drawable/findthechest">
+
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:id="@+id/imageButtonChestUnderTable"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="210dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginBottom="62dp"
+        android:background="@android:color/transparent"/>
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:id="@+id/imageButtonChestOnTable"
+        android:layout_above="@+id/imageButtonChestUnderTable"
+        android:layout_alignLeft="@+id/imageButtonChestUnderTable"
+        android:layout_alignStart="@+id/imageButtonChestUnderTable"
+        android:layout_marginBottom="62dp"
+        android:background="@android:color/transparent"/>
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:id="@+id/imageButtonChestOnFloor"
+        android:layout_marginRight="256dp"
+        android:layout_marginEnd="256dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/transparent"/>
+
+    <ImageButton
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:id="@+id/imageButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="260dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"/>
+</RelativeLayout>

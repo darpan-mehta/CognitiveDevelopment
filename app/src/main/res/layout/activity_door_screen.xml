@@ -40,4 +40,14 @@
         android:layout_toRightOf="@+id/imageButtonBlue"
         android:layout_toEndOf="@+id/imageButtonBlue"
         android:onClick="toastCorrect"/>
+
+    <ImageButton
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:id="@+id/imageButtonPlay"
+        android:layout_above="@+id/imageButtonGreen"
+        android:layout_alignLeft="@+id/imageButtonGreen"
+        android:layout_alignStart="@+id/imageButtonGreen"
+        android:layout_marginLeft="13dp"
+        android:background="@android:color/transparent"/>
 </RelativeLayout>

@@ -34,12 +34,24 @@
         android:layout_width="155dp"
         android:layout_height="125dp"
         android:id="@+id/imageButton5"
-        android:layout_marginLeft="60dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
         android:background="@android:color/transparent"
         android:layout_alignTop="@+id/imageButton7"
         android:layout_toRightOf="@+id/imageButton7"
         android:layout_toEndOf="@+id/imageButton7"
         android:onClick="toastCorrect"/>
+
+    <ImageButton
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:id="@+id/imageButtonPlay"
+        android:layout_marginTop="27dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageButton5"
+        android:layout_toEndOf="@+id/imageButton5"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:background="@android:color/transparent"/>
 
 </RelativeLayout>

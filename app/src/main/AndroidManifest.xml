@@ -29,7 +29,8 @@
         <activity
             android:name=".DoorScreen"
             android:label="@string/title_activity_door_screen"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cogdev.cognitivedevelopment.MainActivity" />
@@ -37,10 +38,29 @@
         <activity
             android:name=".ShipCounting"
             android:label="@string/title_activity_ship_counting"
-            android:parentActivityName=".DoorScreen" >
+            android:parentActivityName=".DoorScreen"
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cogdev.cognitivedevelopment.DoorScreen" />
+        </activity>
+        <activity
+            android:name=".FindTheChest"
+            android:label="@string/title_activity_find_the_chest"
+            android:parentActivityName=".ShipCounting"
+            android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cogdev.cognitivedevelopment.ShipCounting" />
+        </activity>
+        <activity
+            android:name=".ChestSquare"
+            android:label="@string/title_activity_chest_square"
+            android:parentActivityName=".FindTheChest"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cogdev.cognitivedevelopment.FindTheChest" />
         </activity>
     </application>
 

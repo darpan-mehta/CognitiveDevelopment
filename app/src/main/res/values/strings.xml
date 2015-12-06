@@ -24,4 +24,6 @@
     <string name="title_activity_trace">Trace</string>
     <string name="title_activity_door_screen">DoorScreen</string>
     <string name="title_activity_ship_counting">ShipCounting</string>
+    <string name="title_activity_find_the_chest">FindTheChest</string>
+    <string name="title_activity_chest_square">ChestSquare</string>
 </resources>
