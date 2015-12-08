@@ -24,7 +24,9 @@ import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
 public class DrawView extends View implements OnTouchListener {
+    private static MediaPlayer mpg;
     private static final String TAG = "DrawView";
+    int position=0;
     int sideOne=0;
     int sideTwo=0;
     int sideThree=0;
@@ -128,32 +130,38 @@ public class DrawView extends View implements OnTouchListener {
             }
         }
     }
-
     public boolean onTouch(View view, MotionEvent event) {
         // if(event.getAction() != MotionEvent.ACTION_DOWN)
         // return super.onTouchEvent(event);
+        mpg = MediaPlayer.create(view.getContext(), R.raw.introdoor);
         Point point = new Point();
         point.x = event.getX();
         point.y = event.getY();
         points.add(point);
-        invalidate();
         Log.d(TAG, "point: " + point);
-        if (voice == true){
+        if (voice == true && point.x <= 1000 && point.y <= 250 && point.y >= 0 && point.x >= 800){
             voice=false;
-            MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.introdoor);
             try {
-                if (mp.isPlaying()) {
-                    mp.stop();
-                    mp.release();
+                if (mpg.isPlaying()) {
+                    mpg.stop();
+                    mpg.release();
                 }
-                mp = MediaPlayer.create(view.getContext(), R.raw.introdoor);
-                mp.start();
+                mpg.start();
+                while (mpg.isPlaying()){
+                    Thread.yield();
+                }
+                mpg.release();
+                //mpg.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                //    public void onCompletion(MediaPlayer mpg) {
+                //        mpg.release();
+                //    }
+                //});
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        else if (n==0) {
-            if (sideOne > 10 && sideTwo > 10 && sideThree > 10 && sideFour > 10 && numWrong < 50) {
+        if (n==0) {
+            if (sideOne > 3 && sideTwo > 3 && sideThree > 3 && sideFour > 3 && numWrong < 50 && point.x <= 590 && point.y <= 430 && point.y >= 270 && point.x >= 440) {
                 Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
                 view.getContext().startActivity(new Intent(view.getContext(), ShipCounting.class));
                 points.clear();
@@ -175,7 +183,7 @@ public class DrawView extends View implements OnTouchListener {
             }
         }
         else if (n==1) {
-            if (sideOne > 10 && total>200 && numWrong < 50) {
+            if (sideOne > 10 && total>30 && numWrong < 50 && point.x <=600 && point.y <= 420 && point.y >= 280 && point.x >= 555) {
                 Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
                 view.getContext().startActivity(new Intent(view.getContext(), ShipCounting.class));
                 points.clear();
@@ -191,7 +199,7 @@ public class DrawView extends View implements OnTouchListener {
             }
         }
         else {
-            if (sideOne > 10 && sideTwo > 10 && sideThree > 20 && numWrong < 50) {
+            if (sideOne > 5 && sideTwo > 5 && sideThree > 5 && numWrong < 50 && point.x <=710 && point.y <= 420 && point.y >= 280 && point.x >= 580) {
                 Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
                 view.getContext().startActivity(new Intent(view.getContext(), ShipCounting.class));
                 points.clear();
@@ -212,9 +220,11 @@ public class DrawView extends View implements OnTouchListener {
                 total = 0;
             }
         }
+        invalidate();
         return true;
     }
 }
+
 
 class Point {
     float x, y;
