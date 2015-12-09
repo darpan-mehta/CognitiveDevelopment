@@ -54,13 +54,31 @@
                 android:value="com.cogdev.cognitivedevelopment.ShipCounting" />
         </activity>
         <activity
-            android:name=".ChestSquare"
-            android:label="@string/title_activity_chest_square"
-            android:parentActivityName=".FindTheChest"
+            android:name=".FindThePerson"
+            android:label="@string/title_activity_find_the_person"
+            android:parentActivityName=".ShipCounting"
+            android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cogdev.cognitivedevelopment.ShipCounting" />
+        </activity>
+        <activity
+            android:name=".FinalChest"
+            android:label="@string/title_activity_final_chest"
+            android:parentActivityName=".Trace"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cogdev.cognitivedevelopment.FindTheChest" />
+                android:value="com.cogdev.cognitivedevelopment.Trace" />
+        </activity>
+        <activity
+            android:name=".EndScreen"
+            android:label="@string/title_activity_end_screen"
+            android:parentActivityName=".FinalChest"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cogdev.cognitivedevelopment.FinalChest" />
         </activity>
     </application>
 

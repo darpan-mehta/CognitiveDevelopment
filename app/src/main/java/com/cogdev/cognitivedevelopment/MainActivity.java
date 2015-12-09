@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
     public void goToTrace(View view) {
         Intent intent = new Intent(this, Trace.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 
     public void goToDoor(View view) {

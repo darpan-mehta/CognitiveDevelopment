@@ -3,7 +3,8 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/start_screen">
 
 
     <Button
@@ -16,30 +17,36 @@
         android:layout_height="50dp"
         android:id="@+id/bdoor"
         android:text="Blue Door"
-        android:layout_below="@+id/rdoor"/>
+        android:layout_alignTop="@+id/rdoor"
+        android:layout_toRightOf="@+id/parrot"
+        android:layout_toEndOf="@+id/parrot" />
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:id="@+id/gdoor"
         android:text="Green Door"
-        android:layout_below="@id/bdoor"/>
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/bdoor"
+        android:layout_toEndOf="@+id/bdoor" />
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:id="@+id/trace"
         android:text="Go to trace Activity"
-        android:layout_below="@id/gdoor"
-        android:onClick="goToTrace"/>
+        android:onClick="goToTrace"
+        android:layout_alignTop="@+id/gdoor"
+        android:layout_toRightOf="@+id/gdoor"
+        android:layout_toEndOf="@+id/gdoor" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go To Door"
         android:id="@+id/door"
-        android:layout_below="@+id/trace"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="goToDoor"/>
+        android:onClick="goToDoor"
+        android:layout_alignBottom="@+id/trace"
+        android:layout_toRightOf="@+id/trace"
+        android:layout_toEndOf="@+id/trace" />
 
     <Button
         android:layout_width="wrap_content"

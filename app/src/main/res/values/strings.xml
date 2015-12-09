@@ -26,4 +26,7 @@
     <string name="title_activity_ship_counting">ShipCounting</string>
     <string name="title_activity_find_the_chest">FindTheChest</string>
     <string name="title_activity_chest_square">ChestSquare</string>
+    <string name="title_activity_find_the_person">FindThePerson</string>
+    <string name="title_activity_final_chest">FinalChest</string>
+    <string name="title_activity_end_screen">EndScreen</string>
 </resources>

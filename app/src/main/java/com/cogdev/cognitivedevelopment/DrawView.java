@@ -162,8 +162,8 @@ public class DrawView extends View implements OnTouchListener {
         }
         if (n==0) {
             if (sideOne > 3 && sideTwo > 3 && sideThree > 3 && sideFour > 3 && numWrong < 50 && point.x <= 590 && point.y <= 430 && point.y >= 270 && point.x >= 440) {
-                Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
-                view.getContext().startActivity(new Intent(view.getContext(), ShipCounting.class));
+                //Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
+                view.getContext().startActivity(new Intent(view.getContext(), FinalChest.class));
                 points.clear();
                 sideOne = 0;
                 sideTwo = 0;
@@ -184,8 +184,8 @@ public class DrawView extends View implements OnTouchListener {
         }
         else if (n==1) {
             if (sideOne > 10 && total>30 && numWrong < 50 && point.x <=600 && point.y <= 420 && point.y >= 280 && point.x >= 555) {
-                Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
-                view.getContext().startActivity(new Intent(view.getContext(), ShipCounting.class));
+                //Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
+                view.getContext().startActivity(new Intent(view.getContext(), FinalChest.class));
                 points.clear();
                 sideOne = 0;
                 numWrong = 0;
@@ -200,8 +200,8 @@ public class DrawView extends View implements OnTouchListener {
         }
         else {
             if (sideOne > 5 && sideTwo > 5 && sideThree > 5 && numWrong < 50 && point.x <=710 && point.y <= 420 && point.y >= 280 && point.x >= 580) {
-                Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
-                view.getContext().startActivity(new Intent(view.getContext(), ShipCounting.class));
+                //Toast.makeText(view.getContext(), "Congrats. You traced the shape.", Toast.LENGTH_LONG).show();
+                view.getContext().startActivity(new Intent(view.getContext(), FinalChest.class));
                 points.clear();
                 sideOne = 0;
                 sideTwo = 0;

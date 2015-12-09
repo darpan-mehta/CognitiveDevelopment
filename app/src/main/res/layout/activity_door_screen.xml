@@ -39,7 +39,7 @@
         android:layout_alignTop="@+id/imageButtonBlue"
         android:layout_toRightOf="@+id/imageButtonBlue"
         android:layout_toEndOf="@+id/imageButtonBlue"
-        android:onClick="toastCorrect"/>
+        android:onClick="goToCounting"/>
 
     <ImageButton
         android:layout_width="110dp"

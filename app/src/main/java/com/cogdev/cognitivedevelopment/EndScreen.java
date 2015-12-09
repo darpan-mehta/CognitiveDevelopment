@@ -1,41 +1,26 @@
 package com.cogdev.cognitivedevelopment;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-public class ShipCounting extends AppCompatActivity {
-    MediaPlayer mp;
+public class EndScreen extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ship_counting);
+        setContentView(R.layout.activity_end_screen);
         getSupportActionBar().hide();
-
-        mp = MediaPlayer.create(getApplicationContext(), R.raw.parrotintro);
-        try {
-            if (mp.isPlaying()) {
-                mp.stop();
-                mp.release();
-            }
-            mp = MediaPlayer.create(getApplicationContext(), R.raw.parrotintro);
-            mp.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_ship_counting, menu);
+        getMenuInflater().inflate(R.menu.menu_end_screen, menu);
         return true;
-
     }
 
     @Override
@@ -53,20 +38,8 @@ public class ShipCounting extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void toastCorrect(View view){
-
-        Toast.makeText(getApplicationContext(), "Ayy Matey, That's Correct!",
-                Toast.LENGTH_SHORT).show();
-    }
-
-    public void toastIncorrect(View view){
-
-        Toast.makeText(getApplicationContext(), "RRRRRR, That's Not Correct!",
-                Toast.LENGTH_SHORT).show();
-    }
-
-    public void goToPeople(View view) {
-        Intent intent = new Intent(this, FindThePerson.class);
+    public void reset(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }

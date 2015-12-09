@@ -1,22 +1,25 @@
 package com.cogdev.cognitivedevelopment;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class ChestSquare extends AppCompatActivity {
+public class FindThePerson extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chest_square);
+        setContentView(R.layout.activity_find_the_person);
+        getSupportActionBar().hide();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_chest_square, menu);
+        getMenuInflater().inflate(R.menu.menu_find_the_person, menu);
         return true;
     }
 
@@ -33,5 +36,11 @@ public class ChestSquare extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToFindTheChest(View view) {
+        Intent intent = new Intent(this, FindTheChest.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

@@ -5,21 +5,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class FindTheChest extends AppCompatActivity {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class FinalChest extends AppCompatActivity {
+
+    private Timer inactivityTimer;
+    private MyTimerTask inactivityTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_the_chest);
+        setContentView(R.layout.activity_final_chest);
         getSupportActionBar().hide();
+
+        timerToFinalScreen();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_find_the_chest, menu);
+        getMenuInflater().inflate(R.menu.menu_final_chest, menu);
         return true;
     }
 
@@ -38,9 +45,21 @@ public class FindTheChest extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToTrace(View view) {
-        Intent intent = new Intent(this, Trace.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run(){
+            Intent intent = new Intent(FinalChest.this, EndScreen.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+
+        }
+    }
+
+    public void timerToFinalScreen() {
+        inactivityTimer = new Timer();
+        inactivityTask = new MyTimerTask();
+        //Starts a timer that blacks out the screen after 90 seconds unless the user interacts though either voice or touch
+        inactivityTimer.schedule(inactivityTask, 5000);
     }
 }

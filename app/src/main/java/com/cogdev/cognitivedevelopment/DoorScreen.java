@@ -1,5 +1,6 @@
 package com.cogdev.cognitivedevelopment;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -131,4 +132,11 @@ public class DoorScreen extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "RRRRRR, That's Not Correct!",
                 Toast.LENGTH_SHORT).show();
     }
+
+    public void goToCounting(View view) {
+        Intent intent = new Intent(this, ShipCounting.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+    }
 }
+
