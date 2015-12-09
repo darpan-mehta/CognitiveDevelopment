@@ -73,6 +73,12 @@ public class DoorScreen extends AppCompatActivity {
                         mp = MediaPlayer.create(getApplicationContext(), soundsg[rndm]);
                     }
                     mp.start();
+                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            goToCounting();
+                        }
+                    });
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -133,7 +139,7 @@ public class DoorScreen extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
-    public void goToCounting(View view) {
+    public void goToCounting() {
         Intent intent = new Intent(this, ShipCounting.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
