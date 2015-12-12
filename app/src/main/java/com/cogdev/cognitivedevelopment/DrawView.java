@@ -133,7 +133,15 @@ public class DrawView extends View implements OnTouchListener {
     public boolean onTouch(View view, MotionEvent event) {
         // if(event.getAction() != MotionEvent.ACTION_DOWN)
         // return super.onTouchEvent(event);
-        mpg = MediaPlayer.create(view.getContext(), R.raw.introdoor);
+        if(n==0){
+            mpg = MediaPlayer.create(view.getContext(), R.raw.treasuresquare);
+        }
+        else if(n==1){
+            mpg = MediaPlayer.create(view.getContext(), R.raw.treasurecircle);
+        }
+        else {
+            mpg = MediaPlayer.create(view.getContext(), R.raw.treasuretriangle);
+        }
         Point point = new Point();
         point.x = event.getX();
         point.y = event.getY();

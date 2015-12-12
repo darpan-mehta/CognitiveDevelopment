@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class ShipCounting extends AppCompatActivity {
@@ -28,6 +29,81 @@ public class ShipCounting extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        ImageButton button3 = (ImageButton) findViewById(R.id.imageButton3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.parrot3);
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ImageButton button5 = (ImageButton) findViewById(R.id.imageButton5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.parrot5);
+                    mp.start();
+                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            goToPeople();
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ImageButton button7 = (ImageButton) findViewById(R.id.imageButton7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.parrot7);
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ImageButton buttonplay = (ImageButton) findViewById(R.id.imageButtonPlay);
+        buttonplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.parrotintro);
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -65,7 +141,7 @@ public class ShipCounting extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
-    public void goToPeople(View view) {
+    public void goToPeople() {
         Intent intent = new Intent(this, FindThePerson.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);

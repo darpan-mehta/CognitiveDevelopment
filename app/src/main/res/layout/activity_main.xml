@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -7,56 +7,15 @@
     android:background="@drawable/start_screen">
 
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:id="@+id/rdoor"
-        android:text="Red Door"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:id="@+id/bdoor"
-        android:text="Blue Door"
-        android:layout_alignTop="@+id/rdoor"
-        android:layout_toRightOf="@+id/parrot"
-        android:layout_toEndOf="@+id/parrot" />
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:id="@+id/gdoor"
-        android:text="Green Door"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/bdoor"
-        android:layout_toEndOf="@+id/bdoor" />
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:id="@+id/trace"
-        android:text="Go to trace Activity"
-        android:onClick="goToTrace"
-        android:layout_alignTop="@+id/gdoor"
-        android:layout_toRightOf="@+id/gdoor"
-        android:layout_toEndOf="@+id/gdoor" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go To Door"
+    <ImageButton
+        android:layout_width="220dp"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="75dp"
         android:id="@+id/door"
         android:onClick="goToDoor"
-        android:layout_alignBottom="@+id/trace"
-        android:layout_toRightOf="@+id/trace"
-        android:layout_toEndOf="@+id/trace" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to Parrot"
-        android:id="@+id/parrot"
-        android:layout_below="@+id/door"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="goToCounting"/>
+        android:background="@android:color/transparent"/>
 
 
-</RelativeLayout>
+</LinearLayout>

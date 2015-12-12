@@ -1,11 +1,13 @@
 package com.cogdev.cognitivedevelopment;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class Trace extends AppCompatActivity {
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -13,6 +15,19 @@ public class Trace extends AppCompatActivity {
         DrawView drawView = new DrawView(this);
         setContentView(drawView);
         drawView.requestFocus();
+
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureintro);
+        try {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+            }
+            mp = MediaPlayer.create(getApplicationContext(), R.raw.treasuregeneric);
+            mp.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

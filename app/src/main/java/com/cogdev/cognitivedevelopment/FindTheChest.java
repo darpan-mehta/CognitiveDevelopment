@@ -1,19 +1,110 @@
 package com.cogdev.cognitivedevelopment;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class FindTheChest extends AppCompatActivity {
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_the_chest);
         getSupportActionBar().hide();
+
+
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureintro);
+        try {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+            }
+            mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureintro);
+            mp.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        ImageButton imageButtonChestUnderTable = (ImageButton) findViewById(R.id.imageButtonChestUnderTable);
+        imageButtonChestUnderTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureyes);
+                    mp.start();
+                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            goToTrace();
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ImageButton imageButtonChestOnFloor = (ImageButton) findViewById(R.id.imageButtonChestOnFloor);
+        imageButtonChestOnFloor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureno);
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ImageButton imageButtonChestOnTable = (ImageButton) findViewById(R.id.imageButtonChestOnTable);
+        imageButtonChestOnTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureno);
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ImageButton imageButtonPlay = (ImageButton) findViewById(R.id.imageButtonPlay);
+        imageButtonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureintro);
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -21,6 +112,7 @@ public class FindTheChest extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_find_the_chest, menu);
         return true;
+
     }
 
     @Override
@@ -38,7 +130,7 @@ public class FindTheChest extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToTrace(View view) {
+    public void goToTrace() {
         Intent intent = new Intent(this, Trace.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);

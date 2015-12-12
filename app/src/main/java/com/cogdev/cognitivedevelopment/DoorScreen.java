@@ -14,9 +14,9 @@ import java.util.Random;
 
 public class DoorScreen extends AppCompatActivity {
     MediaPlayer mp;
-    int[] soundsr = {R.raw.rightdoor1,R.raw.running1,R.raw.rdoorsound1};
-    int[] soundsg = {R.raw.rightdoor1,R.raw.running1,R.raw.gdoorsound1};
-    int[] soundsb = {R.raw.rightdoor1,R.raw.running1,R.raw.bdoorsound1};
+    int[] soundsr = {R.raw.reddoor,R.raw.reddoor,R.raw.reddoor};
+    int[] soundsg = {R.raw.greendoor,R.raw.greendoor,R.raw.greendoor};
+    int[] soundsb = {R.raw.bluedoor,R.raw.bluedoor,R.raw.bluedoor};
 
     Random r = new Random();
     final int Low = 0;
@@ -42,7 +42,6 @@ public class DoorScreen extends AppCompatActivity {
         }
 
         ImageButton imageButtonRed = (ImageButton) findViewById(R.id.imageButtonRed);
-        mp = MediaPlayer.create(getApplicationContext(), soundsr[rndm]);
         imageButtonRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,9 +49,9 @@ public class DoorScreen extends AppCompatActivity {
                     if (mp.isPlaying()) {
                         mp.stop();
                         mp.release();
-                        rndm = r.nextInt((High - Low) + 1) + Low;
-                        mp = MediaPlayer.create(getApplicationContext(), soundsr[rndm]);
                     }
+                    rndm = r.nextInt((High - Low) + 1) + Low;
+                    mp = MediaPlayer.create(getApplicationContext(), soundsr[rndm]);
                     mp.start();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -61,7 +60,6 @@ public class DoorScreen extends AppCompatActivity {
         });
 
         ImageButton imageButtonGreen = (ImageButton) findViewById(R.id.imageButtonGreen);
-        mp = MediaPlayer.create(getApplicationContext(), soundsg[rndm]);
         imageButtonGreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,9 +67,9 @@ public class DoorScreen extends AppCompatActivity {
                     if (mp.isPlaying()) {
                         mp.stop();
                         mp.release();
-                        rndm = r.nextInt((High - Low) + 1) + Low;
-                        mp = MediaPlayer.create(getApplicationContext(), soundsg[rndm]);
                     }
+                    rndm = r.nextInt((High - Low) + 1) + Low;
+                    mp = MediaPlayer.create(getApplicationContext(), soundsg[rndm]);
                     mp.start();
                     mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -86,7 +84,6 @@ public class DoorScreen extends AppCompatActivity {
         });
 
         ImageButton imageButtonBlue = (ImageButton) findViewById(R.id.imageButtonBlue);
-        mp = MediaPlayer.create(getApplicationContext(), soundsb[rndm]);
         imageButtonBlue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,9 +91,26 @@ public class DoorScreen extends AppCompatActivity {
                     if (mp.isPlaying()) {
                         mp.stop();
                         mp.release();
-                        rndm = r.nextInt((High - Low) + 1) + Low;
-                        mp = MediaPlayer.create(getApplicationContext(), soundsb[rndm]);
                     }
+                    rndm = r.nextInt((High - Low) + 1) + Low;
+                    mp = MediaPlayer.create(getApplicationContext(), soundsb[rndm]);
+                    mp.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ImageButton imageButtonPlay = (ImageButton) findViewById(R.id.imageButtonPlay);
+        imageButtonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (mp.isPlaying()) {
+                        mp.stop();
+                        mp.release();
+                    }
+                    mp = MediaPlayer.create(getApplicationContext(), R.raw.introdoor);
                     mp.start();
                 } catch (Exception e) {
                     e.printStackTrace();

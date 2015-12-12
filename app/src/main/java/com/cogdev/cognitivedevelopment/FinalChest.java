@@ -1,6 +1,7 @@
 package com.cogdev.cognitivedevelopment;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class FinalChest extends AppCompatActivity {
+    MediaPlayer mp;
 
     private Timer inactivityTimer;
     private MyTimerTask inactivityTask;
@@ -19,6 +21,20 @@ public class FinalChest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_chest);
         getSupportActionBar().hide();
+
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.treasurefinal);
+        try {
+            if (mp.isPlaying()) {
+                mp.stop();
+                mp.release();
+            }
+            mp = MediaPlayer.create(getApplicationContext(), R.raw.treasurefinal);
+            mp.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
         timerToFinalScreen();
     }
