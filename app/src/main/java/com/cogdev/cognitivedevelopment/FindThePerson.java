@@ -18,6 +18,8 @@ public class FindThePerson extends AppCompatActivity {
         setContentView(R.layout.activity_find_the_person);
         getSupportActionBar().hide();
 
+        //Sound implementation is the same structure as ShipCounting.java - Darpan
+
         mp = MediaPlayer.create(getApplicationContext(), R.raw.friendintro);
         try {
             if (mp.isPlaying()) {

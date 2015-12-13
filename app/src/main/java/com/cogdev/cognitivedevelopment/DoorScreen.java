@@ -18,10 +18,14 @@ public class DoorScreen extends AppCompatActivity {
     int[] soundsg = {R.raw.greendoor,R.raw.greendoor,R.raw.greendoor};
     int[] soundsb = {R.raw.bluedoor,R.raw.bluedoor,R.raw.bluedoor};
 
+    // Have arrays of sound files for randomizing the sound in the future - Darpan
     Random r = new Random();
     final int Low = 0;
     final int High = 2;
     int rndm = r.nextInt((High - Low)+1) + Low;
+    // Above code picks a randomized number. Here it doesn't matter since the arrays
+    // have the same sound files but all a future coder needs to do is change the soundfiles
+    // to make fun - Darpan
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class DoorScreen extends AppCompatActivity {
         setContentView(R.layout.activity_door_screen);
         getSupportActionBar().hide();
 
+        //Intros are set up to play when the screen pops up.
         mp = MediaPlayer.create(getApplicationContext(), R.raw.introdoor);
         try {
             if (mp.isPlaying()) {
@@ -51,8 +56,8 @@ public class DoorScreen extends AppCompatActivity {
                         mp.release();
                     }
                     rndm = r.nextInt((High - Low) + 1) + Low;
-                    mp = MediaPlayer.create(getApplicationContext(), soundsr[rndm]);
-                    mp.start();
+                    mp = MediaPlayer.create(getApplicationContext(), soundsr[rndm]); //Chooses a file from it's specific array. Thus the sounds for each door can be individualized - Darpan
+                    mp.start();                                                      //Works same way for other imagebuttons pertanining to doors
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

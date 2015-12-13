@@ -18,6 +18,7 @@ public class FindTheChest extends AppCompatActivity {
         setContentView(R.layout.activity_find_the_chest);
         getSupportActionBar().hide();
 
+        //Sound implementation is the same structure as ShipCounting.java - Darpan
 
         mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureintro);
         try {

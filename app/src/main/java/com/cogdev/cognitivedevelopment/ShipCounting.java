@@ -18,11 +18,12 @@ public class ShipCounting extends AppCompatActivity {
         setContentView(R.layout.activity_ship_counting);
         getSupportActionBar().hide();
 
+        //Intro set to play when it starts - Darpan
         mp = MediaPlayer.create(getApplicationContext(), R.raw.parrotintro);
         try {
             if (mp.isPlaying()) {
                 mp.stop();
-                mp.release();
+                mp.release(); //to catch and release the player so there's not multiple soundclips playing
             }
             mp = MediaPlayer.create(getApplicationContext(), R.raw.parrotintro);
             mp.start();
@@ -30,6 +31,7 @@ public class ShipCounting extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        // Simple sound play - Darpan
         ImageButton button3 = (ImageButton) findViewById(R.id.imageButton3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
