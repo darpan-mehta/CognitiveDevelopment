@@ -130,9 +130,13 @@ public class FindThePerson extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Sends to next book page
     public void goToFindTheChest() {
         Intent intent = new Intent(this, FindTheChest.class);
         startActivity(intent);
+
+        //Animation to make app seem more like a story book
+        //Files are in the anim folder
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

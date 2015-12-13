@@ -141,6 +141,7 @@ public class DoorScreen extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Toasts used for testing
     public void toastCorrect(View view){
 
         Toast.makeText(getApplicationContext(), "Ayy Matey, That's Correct!",
@@ -153,9 +154,13 @@ public class DoorScreen extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
+    //Sends to next book page
     public void goToCounting() {
         Intent intent = new Intent(this, ShipCounting.class);
         startActivity(intent);
+
+        //Animation to make app seem more like a story book
+        //Files are in the anim folder
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

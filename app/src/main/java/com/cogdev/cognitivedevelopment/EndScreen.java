@@ -38,9 +38,13 @@ public class EndScreen extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Sends you to the first page of the story
     public void reset(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+
+        //Animation to make app seem more like a story book
+        //Files are in the anim folder
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

@@ -62,16 +62,22 @@ public class FinalChest extends AppCompatActivity {
     }
 
 
+    //Shows the final screen for 5 seconds
     class MyTimerTask extends TimerTask {
         @Override
+        //Starts timer and sends user to the next book page when completed
         public void run(){
             Intent intent = new Intent(FinalChest.this, EndScreen.class);
             startActivity(intent);
+
+            //Animation to make app seem more like a story book
+            //Files are in the anim folder
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         }
     }
 
+    //Sets the timer time
     public void timerToFinalScreen() {
         inactivityTimer = new Timer();
         inactivityTask = new MyTimerTask();

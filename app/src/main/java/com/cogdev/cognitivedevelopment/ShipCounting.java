@@ -129,6 +129,7 @@ public class ShipCounting extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Toasts used for testing
     public void toastCorrect(View view){
 
         Toast.makeText(getApplicationContext(), "Ayy Matey, That's Correct!",
@@ -141,9 +142,13 @@ public class ShipCounting extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
+    //Send to next page
     public void goToPeople() {
         Intent intent = new Intent(this, FindThePerson.class);
         startActivity(intent);
+
+        //Animation to make app seem more like a story book
+        //Files are in the anim folder
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

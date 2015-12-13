@@ -130,9 +130,13 @@ public class FindTheChest extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Sends to next book page
     public void goToTrace() {
         Intent intent = new Intent(this, Trace.class);
         startActivity(intent);
+
+        //Animation to make app seem more like a story book
+        //Files are in the anim folder
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 }

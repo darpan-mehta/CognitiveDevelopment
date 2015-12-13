@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     public void goToDoor(View view) {
         Intent intent = new Intent(this, DoorScreen.class);
         startActivity(intent);
+
+        //Animation to make app seem more like a story book
+        //Files are in the anim folder
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
     }
 
