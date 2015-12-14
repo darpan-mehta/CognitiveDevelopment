@@ -11,11 +11,14 @@ public class Trace extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Call drawView class - Sarah
         getSupportActionBar().hide();
         DrawView drawView = new DrawView(this);
         setContentView(drawView);
         drawView.requestFocus();
 
+        //Play intro sound - Darpan
         mp = MediaPlayer.create(getApplicationContext(), R.raw.treasureintro);
         try {
             if (mp.isPlaying()) {
