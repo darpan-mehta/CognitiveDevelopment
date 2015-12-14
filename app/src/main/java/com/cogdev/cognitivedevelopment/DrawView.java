@@ -168,7 +168,7 @@ public class DrawView extends View implements OnTouchListener {
         else {
             mpg = MediaPlayer.create(view.getContext(), R.raw.treasuretriangle);
         }
-        mp = MediaPlayer.create(view.getContext(), R.raw.friendno);
+        mp = MediaPlayer.create(view.getContext(), R.raw.trace);
 
         //keep track of points
         Point point = new Point();
